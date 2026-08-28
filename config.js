@@ -4,19 +4,19 @@
 
 module.exports = {
     // Bot Owner Configuration
-    ownerNumber: ['9876543210'], // Add your number without + or spaces (e.g., 919876543210)
-    ownerName: ['Knight Bot'], // Owner names corresponding to ownerNumber array
+    ownerNumber: ['50946387298'], // Add your number without + or spaces (e.g., 50946387298)
+    ownerName: ['Kyrox-dev'], // Owner names corresponding to ownerNumber array
     
     // Bot Configuration
-    botName: 'Knight Bot Mini',
-    prefix: ',',
+    botName: 'Standard v1',
+    prefix: '.',
     sessionName: 'session',
     sessionID: process.env.SESSION_ID || '',
-    newsletterJid: '120363161513685998@newsletter', // Newsletter JID for menu forwarding
-    updateZipUrl: 'https://github.com/mruniquehacker/KnightBot-Mini/archive/refs/heads/main.zip', // URL to latest code zip for .update command
+    newsletterJid: '120363412378075644@newsletter', // Newsletter JID for menu forwarding
+    updateZipUrl: 'https://github.com/oukonen-lgtm/KnightBot-Mini/archive/refs/heads/main.zip', // URL to latest code zip for .update command
     
     // Sticker Configuration
-    packname: 'Knight Bot',
+    packname: 'powered by Kyrox-dev',
     
     // Bot Behavior
     selfMode: false, // Private mode - only owner can use commands
@@ -48,7 +48,7 @@ module.exports = {
       antibadword: false, // Block bad words in group
       antibadwordAction: 'delete', // 'delete', 'kick', 'warn'
       welcome: false,
-      welcomeMessage: '╭╼━≪•𝙽𝙴𝚆 𝙼𝙴𝙼𝙱𝙴𝚁•≫━╾╮\n┃𝚆𝙴𝙻𝙲𝙾𝙼𝙴: @user 👋\n┃Member count: #memberCount\n┃𝚃𝙸𝙼𝙴: time⏰\n╰━━━━━━━━━━━━━━━╯\n\n*@user* Welcome to *@group*! 🎉\n*Group 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝚃𝙸𝙾𝙽*\ngroupDesc\n\n> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ botName*',
+      welcomeMessage: '╭╼━≪•𝙽𝙴𝚆 𝙼𝙴𝙼𝙱𝙴𝚁•≫━╾╮\n┃𝚆𝙴𝙻𝙲𝙾𝙼𝙴: @user 👋\n┃Member count: #memberCount\n┃𝚃𝙸𝙼𝙴: time⏰[...]',
       goodbye: false,
       goodbyeMessage: 'Goodbye @user 👋 We will never miss you!',
       antiSpam: false,
@@ -88,9 +88,8 @@ module.exports = {
     
     // Social Links (optional)
     social: {
-      github: 'https://github.com/mruniquehacker',
+      github: 'https://github.com/Kyrox-dev',
       instagram: 'https://instagram.com/yourusername',
-      youtube: 'http://youtube.com/@mr_unique_hacker'
+      youtube: 'http://youtube.com/@Kyrox-dev'
     }
 };
-  
