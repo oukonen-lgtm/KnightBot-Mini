@@ -14,8 +14,8 @@ module.exports = {
     sessionID: process.env.SESSION_ID || '',
     newsletterJid: '120363412378075644@newsletter', // Newsletter JID for menu forwarding
     updateZipUrl: 'https://github.com/oukonen-lgtm/KnightBot-Mini/archive/refs/heads/main.zip', // URL to latest code zip for .update command
-    // Default menu image URL (set to user-provided image)
-    menuImageUrl: 'https://files.catbox.moe/j0d06s.png',
+    // Menu image URL — can be overridden by the MENU_IMAGE_URL environment variable
+    menuImageUrl: process.env.MENU_IMAGE_URL || 'https://files.catbox.moe/j0d06s.png',
     
     // Sticker Configuration
     packname: 'powered by Kyrox-dev',
