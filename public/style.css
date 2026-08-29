@@ -1,0 +1,17 @@
+/* public/style.css */
+:root{--bg:#f6f7fb;--card:#fff;--accent:#111;--muted:#888}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+.card{width:380px;background:var(--card);border-radius:12px;box-shadow:0 10px 30px rgba(10,10,20,.06);padding:28px;text-align:center}
+.logo{width:72px;height:72px;border-radius:50%;background:#000;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:12px}
+h1{margin:8px 0;font-size:20px;color:var(--accent)}
+.sub{color:var(--muted);margin-bottom:16px}
+.tabs{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+.tab{padding:10px 18px;border-radius:12px;border:1px solid #eee;background:#fafafa;cursor:pointer}
+.tab.active{background:#000;color:#fff}
+.label{display:block;text-align:left;margin:8px 0;color:var(--muted);font-size:13px}
+input[type=tel]{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e6e6;margin-bottom:12px;font-size:15px}
+.btn{width:100%;padding:12px;border-radius:10px;border:0;background:#eee;cursor:pointer;margin-bottom:12px}
+.btn.primary{background:#000;color:#fff}
+.result{padding:14px;border-radius:10px;background:#f3f3f3;border:1px solid #eee;margin-bottom:10px}
+.foot{font-size:12px;color:var(--muted);margin-top:8px}
