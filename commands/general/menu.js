@@ -166,10 +166,33 @@ module.exports = {
       menuText += `💡 Type ${config.prefix}help <command> for more info\n`;
       menuText += `🌟 Bot Version: 1.0.3\n`;
       
-      // Send menu with image
+      // Send menu with image — prefer remote URL (config.menuImageUrl) but fall back to local file if present
       const fs = require('fs');
       const path = require('path');
       const imagePath = path.join(__dirname, '../../utils/bot_image.jpg');
+      
+      if (config.menuImageUrl) {
+        try {
+          await sock.sendMessage(extra.from, {
+            image: { url: config.menuImageUrl },
+            caption: menuText,
+            mentions: [extra.sender],
+            contextInfo: {
+              forwardingScore: 1,
+              isForwarded: true,
+              forwardedNewsletterMessageInfo: {
+                newsletterJid: config.newsletterJid || '120363161513685998@newsletter',
+                newsletterName: config.botName,
+                serverMessageId: -1
+              }
+            }
+          }, { quoted: msg });
+          return;
+        } catch (err) {
+          console.warn('Failed to send menu image via URL, falling back to local file:', err.message || err);
+          // continue to try local file
+        }
+      }
       
       if (fs.existsSync(imagePath)) {
         // Send image with newsletter forwarding context
