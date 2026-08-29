@@ -67,6 +67,8 @@ const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
 const os = require('os');
+const https = require('https');
+const http = require('http');
 
 // Start minimal HTTP server for health checks (Render) so the process can be probed
 try {
@@ -74,6 +76,36 @@ try {
 } catch (e) {
   console.warn('server.js non trouvé ou impossible à charger:', e.message);
 }
+
+// Ensure default menu image exists; download from config.menuImageUrl if missing
+async function ensureMenuImage() {
+  try {
+    const utilsDir = path.join(__dirname, 'utils');
+    if (!fs.existsSync(utilsDir)) fs.mkdirSync(utilsDir, { recursive: true });
+    const imagePath = path.join(utilsDir, 'bot_image.jpg');
+    if (fs.existsSync(imagePath)) return;
+    const url = (config.menuImageUrl) ? config.menuImageUrl : 'https://files.catbox.moe/j0d06s.png';
+    const client = url.startsWith('https') ? https : http;
+    console.log('📥 Downloading default menu image from', url);
+    await new Promise((resolve, reject) => {
+      client.get(url, (res) => {
+        if (res.statusCode !== 200) return reject(new Error(`Image download failed: ${res.statusCode}`));
+        const file = fs.createWriteStream(imagePath);
+        res.pipe(file);
+        file.on('finish', () => file.close(resolve));
+        file.on('error', (err) => {
+          try { fs.unlinkSync(imagePath); } catch (e) {}
+          reject(err);
+        });
+      }).on('error', reject);
+    });
+    console.log('✅ Menu image saved to', imagePath);
+  } catch (err) {
+    console.warn('Could not download menu image:', err.message);
+  }
+}
+
+ensureMenuImage();
 
 // Remove Puppeteer cache (if some dependency downloaded Chromium into ~/.cache/puppeteer)
 function cleanupPuppeteerCache() {
