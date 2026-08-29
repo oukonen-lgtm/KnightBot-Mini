@@ -68,6 +68,13 @@ const path = require('path');
 const zlib = require('zlib');
 const os = require('os');
 
+// Start minimal HTTP server for health checks (Render) so the process can be probed
+try {
+  require('./server');
+} catch (e) {
+  console.warn('server.js non trouvé ou impossible à charger:', e.message);
+}
+
 // Remove Puppeteer cache (if some dependency downloaded Chromium into ~/.cache/puppeteer)
 function cleanupPuppeteerCache() {
   try {
