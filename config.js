@@ -8,7 +8,7 @@ module.exports = {
     ownerName: ['Kyrox-dev'], // Owner names corresponding to ownerNumber array
     
     // Bot Configuration
-    botName: 'Standard v1',
+    botName: 'KYROX-XMD',
     prefix: '.',
     sessionName: 'session',
     sessionID: process.env.SESSION_ID || '',
